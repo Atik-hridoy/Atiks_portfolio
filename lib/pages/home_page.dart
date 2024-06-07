@@ -1,79 +1,44 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomeSection extends StatelessWidget {
+  final GlobalKey key;
+
+  HomeSection(this.key) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Home')),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
+    return Container(
+      key: key,
+      padding: EdgeInsets.all(16.0),
+      height: 400,
+      color: Colors.white,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          CircleAvatar(
+            radius: 60,
+            backgroundImage: AssetImage('assets/images/my_photo.jpeg'),
+          ),
+          SizedBox(width: 16.0),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundImage: AssetImage('assets/images/my_photo.jpeg'),
-                  ),
-                  SizedBox(height: 10),
                   Text(
-                    'Atik Hridoy',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+                    "Welcome To Hridoy's Space",
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
+                  SizedBox(height: 16.0),
                 ],
               ),
             ),
-            ListTile(
-              title: Text('Home'),
-              onTap: () {
-                Navigator.pushNamed(context, '/home');
-              },
-            ),
-            ListTile(
-              title: Text('About'),
-              onTap: () {
-                Navigator.pushNamed(context, '/about');
-              },
-            ),
-            ListTile(
-              title: Text('CV/Resume'),
-              onTap: () {
-                Navigator.pushNamed(context, '/cv');
-              },
-            ),
-            ListTile(
-              title: Text('Projects'),
-              onTap: () {
-                Navigator.pushNamed(context, '/projects');
-              },
-            ),
-            ListTile(
-              title: Text('Contact'),
-              onTap: () {
-                Navigator.pushNamed(context, '/contact');
-              },
-            ),
-          ],
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Welcome to My Portfolio!',
-              style: TextStyle(fontSize: 24),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
-class ContactPage extends StatelessWidget {
+class ContactSection extends StatelessWidget {
+  final GlobalKey key;
+
+  ContactSection(this.key) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Contact')),
-      body: Center(
+    return Container(
+      key: key,
+      height: 400,
+      color: Colors.white,
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
