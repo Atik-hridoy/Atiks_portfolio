@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
-import 'pages/about_page.dart';
-import 'pages/cv_page.dart';
-import 'pages/projects_page.dart';
-import 'pages/contact_page.dart';
+import 'sections/header_section.dart';
+import 'sections/services_section.dart';
+import 'sections/team_section.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,15 +14,27 @@ class MyApp extends StatelessWidget {
       title: 'Atik Portfolio',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
       ),
       home: HomePage(),
-      routes: {
-        '/home': (context) => HomePage(),
-        '/about': (context) => AboutPage(),
-        '/cv': (context) => CvPage(),
-        '/projects': (context) => ProjectsPage(),
-        '/contact': (context) => ContactPage(),
-      },
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            HeaderSection(),
+            ServicesSection(),
+            TeamSection(),
+          ],
+        ),
+      ),
     );
   }
 }
